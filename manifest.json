@@ -1,0 +1,46 @@
+{
+	"manifest_version": 2,
+
+	"name": "Demo Game Controller",
+	"description": "Experiemental extension for jesture controlling of Web games",
+	"version": "0.0.1",
+	"homepage_url": "https://blog.naiqus.com",
+	"minimum_chrome_version": "19.0.1055.1",
+	"icons": {
+		"16" : "img/icon.png",
+    	"48" : "img/icon.png",
+    	"128": "img/icon.png"
+	},
+
+	"permissions": [
+		"tabs"
+	],
+
+	"content_scripts": [
+		{
+			// "matches": ["http://race.assassinscreedpirates.com/*"],
+			"matches": ["http://*/*"],
+			"js": [
+				// "js/leap.js",
+				// "js/leap-0.6.4.min.js",
+				"js/content.js"
+			],
+			"run_at" : "document_idle",
+			"all_frames": false
+		}
+	],
+	"web_accessible_resources": ["js/leapgame.js","js/leap-0.6.4.min.js"],
+
+	"background": {
+		"scripts": ["js/background.js"],
+		"persistent": false
+	},
+
+	"browser_action": {
+		"default_icon": {
+			"19": "img/icon.png",
+			"38": "img/icon.png"
+		},
+		"default_title": "Demo Game Controller"
+	}
+}
